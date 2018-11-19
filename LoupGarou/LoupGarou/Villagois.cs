@@ -11,9 +11,9 @@ namespace LoupGarou
         private string nom;
         private int playerOrdre;
 
-        private List<Villageois> listeVillageois = new List<Villageois>();
+        private List<Villagois> listeVillagois = new List<Villagois>();
 
-        public Villageois(string nom, int playerOrdre)
+        public Villagois(string nom, int playerOrdre)
         {
             this.Nom = nom;
             this.PlayerOrdre = playerOrdre;
