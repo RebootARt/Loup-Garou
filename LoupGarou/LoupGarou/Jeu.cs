@@ -8,7 +8,7 @@ namespace LoupGarou
 {
     class Jeu
     {
-
+        private List<Villageois> listeVillageois = new List<Villageois>();
         public void debutDuGame()
         {
             int numCarte = 1;
@@ -24,12 +24,16 @@ namespace LoupGarou
 
 
                 numCarte = v.PlayerOrdre+1;
-                ajouterVillageois(villageois);
-
+                listeVillageois.Add(v);
+                afficherVillageois(); // mettre cette méthode dans hors de la boucle "for"
             }
-            
-            
+
         }
 
+        public void afficherVillageois() {
+            foreach (var v in listeVillageois) {
+                Console.WriteLine("Nom du joueur nuérom: "+v.PlayerOrdre+ "  " + v.Nom);
+            }
+        }
     }
 }
