@@ -10,7 +10,7 @@ namespace LoupGarou
     {
         static void Main(string[] args)
         {
-
+            Jeu jeu = new Jeu();
         }
     }
 }
