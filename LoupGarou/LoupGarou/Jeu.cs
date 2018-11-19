@@ -17,6 +17,7 @@ namespace LoupGarou
             for (int i = 0; i < nbJoueur; i++){
                 Console.WriteLine("Nom du joueur : ");
 
+                
             }
 
             foreach (var v in listeVillagois)
@@ -24,6 +25,9 @@ namespace LoupGarou
                 Console.WriteLine(v);
             }
         }
-
+        public void ajouterVillageois(Villagois X)
+        {
+            listeVillagois.Add(X);
+        }
     }
 }
