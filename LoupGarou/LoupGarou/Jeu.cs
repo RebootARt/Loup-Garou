@@ -9,13 +9,16 @@ namespace LoupGarou
     class Jeu
     {
 
-        public void nbJoueurs()
+        public void debutDuGame()
         {
+            int numCarte = 1;
             Console.WriteLine("Combien de joueurs ? : ");
             int nbJoueur = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i < nbJoueur; i++){
+            for (int i = 1; i < nbJoueur; i++){
                 Console.WriteLine("Nom du joueur : ");
+                string nomJoueur = Console.In.ReadLine();
+                Villagois villagois = new Villagois(nomJoueur,numCarte);
 
             }
 
