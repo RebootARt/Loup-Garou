@@ -19,21 +19,21 @@ namespace LoupGarou
             {
                 Console.WriteLine("Nom du joueur : ");
                 string nomJoueur = Console.In.ReadLine();
-                Villagois villagois = new Villagois(nomJoueur, numCarte);
+                Villageois Villageois = new Villageois(nomJoueur, numCarte);
 
 
             }
 
 
-            foreach (var v in Villagois.listeVillagois)
+            foreach (var v in Villageois.listeVillageois)
             {
                 Console.WriteLine("nb villageois" + v);
             }
-            ajouterVillageois(villagois);
+            ajouterVillageois(Villageois);
         }
-        public void ajouterVillageois(Villagois villagois)
+        public void ajouterVillageois(Villageois Villageois)
         {
-            listeVillagois.Add(villagois);
+            listeVillageois.Add(Villageois);
         }
     }
 }

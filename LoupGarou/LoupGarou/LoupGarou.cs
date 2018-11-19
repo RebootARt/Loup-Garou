@@ -9,7 +9,7 @@ namespace LoupGarou
     class LoupGarou
     {
         private string nom;
-        private List<Villagois> listLoupGarou = new List<Villagois>();
+        private List<Villageois> listLoupGarou = new List<Villageois>();
 
         public LoupGarou(string nom)
         {
