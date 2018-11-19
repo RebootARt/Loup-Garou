@@ -19,4 +19,4 @@ namespace LoupGarou
         public string Nom { get => nom; set => nom = value; }
     }
 }
-}
+
