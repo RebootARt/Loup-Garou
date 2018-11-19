@@ -10,6 +10,7 @@ namespace LoupGarou
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("coucou");
         }
     }
 }
