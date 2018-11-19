@@ -15,25 +15,25 @@ namespace LoupGarou
             Console.WriteLine("Combien de joueurs ? : ");
             int nbJoueur = int.Parse(Console.ReadLine());
 
-            for (int i = 1; i < nbJoueur; i++)
+            for (int i = 0; i < nbJoueur; i++)
             {
                 Console.WriteLine("Nom du joueur : ");
                 string nomJoueur = Console.In.ReadLine();
-                Villageois Villageois = new Villageois(nomJoueur, numCarte);
+                Villageois villageois = new Villageois(nomJoueur, numCarte);
 
+
+
+                numCarte = villageois.PlayerOrdre+1;
+                ajouterVillageois(villageois);
 
             }
+            
 
-
-            foreach (var v in Villageois.listeVillageois)
-            {
-                Console.WriteLine("nb villageois" + v);
-            }
-            ajouterVillageois(Villageois);
         }
-        public void ajouterVillageois(Villageois Villageois)
+        public void ajouterVillageois(Villageois v)
         {
-            listeVillageois.Add(Villageois);
+            v.ListeVillageois.Add(v);
+            v.NbVillageois();
         }
     }
 }
