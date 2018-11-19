@@ -8,6 +8,14 @@ namespace LoupGarou
 {
     class Jeu
     {
-        Console.WriteLine("oui");
+        public void nbJoueurs()
+        {
+            Console.WriteLine("Combien de joueurs ? : ");
+            
+            foreach (var v in listeVillagois)
+            {
+                Console.WriteLine(v);
+            }
+        }
     }
 }
