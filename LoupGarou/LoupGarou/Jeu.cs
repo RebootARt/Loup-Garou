@@ -8,6 +8,12 @@ namespace LoupGarou
 {
     class Jeu
     {
-        Console.WriteLine("oui");
+
+
+
+        int nbJoueur = int.Parse(Console.ReadLine());
+
+
+
     }
 }
