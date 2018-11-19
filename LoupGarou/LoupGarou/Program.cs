@@ -10,7 +10,7 @@ namespace LoupGarou
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("coucou");
+            Console.WriteLine("Bienvenue dans le village de Tiercelieu!");
         }
     }
 }

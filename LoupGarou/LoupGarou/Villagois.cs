@@ -8,5 +8,10 @@ namespace LoupGarou
 {
     class Villagois
     {
+        private string nom;
+        private int playerOrdre;
+
+        private List<Villageois> listeVillageois = new List<Villageois>();
+
     }
 }

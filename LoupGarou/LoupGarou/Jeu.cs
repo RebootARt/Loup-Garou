@@ -8,5 +8,6 @@ namespace LoupGarou
 {
     class Jeu
     {
+        Console.WriteLine("oui");
     }
 }
