@@ -8,5 +8,13 @@ namespace LoupGarou
 {
     class LoupGarou
     {
+        private string nom;
+        private List<Villagois> listLoupGarou = new List<Villagois>();
+
+        public LoupGarou(string nom) {
+            this.Nom = nom;
+        }
+
+        public string Nom { get => nom; set => nom = value; }
     }
 }
