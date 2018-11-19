@@ -8,7 +8,7 @@ namespace LoupGarou
 {
     class Voleur
     {
-        private string nom;
+        private string nomVoleur;
         
     }
 }
