@@ -1,2 +1,7 @@
 E:\CESI\GITHUB\Loup-Garou\LoupGarou\LoupGarou\obj\Debug\LoupGarou.csprojAssemblyReference.cache
 E:\CESI\GITHUB\Loup-Garou\LoupGarou\LoupGarou\obj\Debug\LoupGarou.csproj.CoreCompileInputs.cache
+E:\CESI\GITHUB\Loup-Garou\LoupGarou\LoupGarou\bin\Debug\LoupGarou.exe.config
+E:\CESI\GITHUB\Loup-Garou\LoupGarou\LoupGarou\bin\Debug\LoupGarou.exe
+E:\CESI\GITHUB\Loup-Garou\LoupGarou\LoupGarou\bin\Debug\LoupGarou.pdb
+E:\CESI\GITHUB\Loup-Garou\LoupGarou\LoupGarou\obj\Debug\LoupGarou.exe
+E:\CESI\GITHUB\Loup-Garou\LoupGarou\LoupGarou\obj\Debug\LoupGarou.pdb
