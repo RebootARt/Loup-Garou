@@ -11,6 +11,7 @@ namespace LoupGarou
         private string nom;
         private int playerOrdre;
 
+
         private List<Villagois> listeVillagois = new List<Villagois>();
 
         public Villagois(string nom, int playerOrdre)
