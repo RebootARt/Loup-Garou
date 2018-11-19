@@ -9,7 +9,7 @@ namespace LoupGarou
     class Sorciere
     {
         private string nom;
-        private List<Villagois> listSorciere = new List<Villagois>();
+        private List<Villageois> listSorciere = new List<Villageois>();
 
         public Sorciere(string nom)
         {
