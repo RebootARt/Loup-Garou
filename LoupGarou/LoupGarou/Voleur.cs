@@ -8,7 +8,9 @@ namespace LoupGarou
 {
     class Voleur
     {
-        private string nomVoleur;
-        
+        private string nom;
+        private List<Villagois> listVoleur = new List<Villagois>();
+
+
     }
 }
