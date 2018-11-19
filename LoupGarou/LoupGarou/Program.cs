@@ -8,6 +8,7 @@ namespace LoupGarou
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             Jeu j1 = new Jeu();
