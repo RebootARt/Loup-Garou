@@ -13,5 +13,14 @@ namespace LoupGarou
 
         private List<Villageois> listeVillageois = new List<Villageois>();
 
+        public Villageois(string nom, int playerOrdre)
+        {
+            this.Nom = nom;
+            this.PlayerOrdre = playerOrdre;
+        }
+
+        public string Nom { get => nom; set => nom = value; }
+        public int PlayerOrdre { get => playerOrdre; set => playerOrdre = value; }
+
     }
 }
