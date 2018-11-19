@@ -13,6 +13,12 @@ namespace LoupGarou
         {
             Console.WriteLine("Combien de joueurs ? : ");
             int nbJoueur = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < nbJoueur; i++){
+                Console.WriteLine("Nom du joueur : ");
+
+            }
+
             foreach (var v in listeVillagois)
             {
                 Console.WriteLine(v);
