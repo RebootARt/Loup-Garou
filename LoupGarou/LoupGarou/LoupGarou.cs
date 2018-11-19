@@ -12,7 +12,7 @@ namespace LoupGarou
         private List<Villagois> listLoupGarou = new List<Villagois>();
 
         public LoupGarou(string nom) {
-            this.Nom = nom;
+            this.nom = nom;
         }
 
         public string Nom { get => nom; set => nom = value; }
