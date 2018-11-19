@@ -9,11 +9,15 @@ namespace LoupGarou
     class Jeu
     {
 
-
-
-        int nbJoueur = int.Parse(Console.ReadLine());
-
-
+        public void nbJoueurs()
+        {
+            Console.WriteLine("Combien de joueurs ? : ");
+            int nbJoueur = int.Parse(Console.ReadLine());
+            foreach (var v in listeVillagois)
+            {
+                Console.WriteLine(v);
+            }
+        }
 
     }
 }
