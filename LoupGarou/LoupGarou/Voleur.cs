@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace LoupGarou
 {
-    class Program
+    class Voleur
     {
-        static void Main(string[] args)
-        {
-
-        }
     }
 }
