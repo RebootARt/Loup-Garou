@@ -9,6 +9,8 @@ namespace LoupGarou
     class Jeu
     {
         private List<Villageois> listeVillageois = new List<Villageois>();
+        private List<Cupidon> listCupidon = new List<Cupidon>();
+        private List<Voleur> listVoleur = new List<Voleur>();
         public void debutDuGame()
         {
             int numCarte = 1;
@@ -33,18 +35,19 @@ namespace LoupGarou
                 listeVillageois.Add(v);
 
             }
+
             afficherVillageois(); // mettre cette méthode dans hors de la boucle "for"
-                                  //DefinirCartes();
+            DefinirCartes(nbJoueur);
+            Console.WriteLine(" nb voleur" + listVoleur.Count);
+            Console.WriteLine(" nb cupidon " + listCupidon.Count);
+            //DefinirCartes();
         }
-
-        /*
-                public void DefinirCartes(){
+        
+                public void DefinirCartes(int nbJoueur)
+        {
                 //AttentionLesYeux
-                Random aleatoire = new Random();
 
-                int numCupidon = aleatoire.Next(nbJoueur); //Créer un lancer de dé à "nbJoueur" faces pour définir le numéro de Cupidon
-                Cupidon Culbidon = new Cupidon();
-
+            /*
                 int numSorciere = aleatoire.Next(nbJoueur); //Créer un lancer de dé à "nbJoueur" faces pour définir le numéro de Sorcière
                 while (numSorciere == numCupidon)
                 {           //S'assurer que le num n'est pas pris et relancer le dé tant que num est pris
@@ -65,25 +68,31 @@ namespace LoupGarou
                 }
                 LoupGarou Lupin = new LoupGarou();
 
-                int numVoleur = aleatoire.Next(nbJoueur);
+
                 while (numVoleur == numCupidon || numVoleur == numSorciere || numVoleur == numLoup1 || numVoleur == numLoup2)
                 {
                     numVoleur = aleatoire.Next(nbJoueur);
                 }
-                Voleur BouncieBarro = new Voleur();
 
+            */
                 //Définition des roles avec le tirage au sort
 
-                foreach (v in listeVillageois)
+                foreach (var v in listeVillageois)
                 {
-                    if (v.PlayerOrdre == numCupidon)
+                Random aleatoire = new Random();
+                int numCupidon = aleatoire.Next(nbJoueur); //Créer un lancer de dé à "nbJoueur" faces pour définir le numéro de Cupidon
+                int numVoleur = aleatoire.Next(nbJoueur);
+                if (v.PlayerOrdre == numCupidon)
                     {
-                        Culbidon.ajouterCupidon(v);
+                    Cupidon Culbidon = new Cupidon(v.Nom);
+                    listCupidon.Add(Culbidon);
                     }
                     else if (v.PlayerOrdre == numVoleur)
                     {
-                        BouncieBarro.ajouterVoleur(v);
+                    Voleur BouncieBarro = new Voleur(v.Nom);
+                    listVoleur.Add(BouncieBarro);
                     }
+                /*
                     else if (v.PlayerOrdre == numSorciere)
                     {
                         Mireille.ajouterSorciere(v);
@@ -96,21 +105,13 @@ namespace LoupGarou
                     {
                         Lupin.ajouterLoup(v);
                     }
+                    */
                 }
          }
-         */
-
-
-
-
-
-
-
-
 
         public void afficherVillageois() {
             foreach (var v in listeVillageois) {
-                Console.WriteLine("Joueur "+v.PlayerOrdre+ " : Bienvenue " + v.Nom);
+                Console.WriteLine("Joueur "+v.PlayerOrdre+ " : Bienvenue " + v.Nom+" num joueur "+v.PlayerOrdre);
             }
         }
 

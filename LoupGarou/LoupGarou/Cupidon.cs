@@ -9,7 +9,7 @@ namespace LoupGarou
     class Cupidon
     {
         private string nom;
-        private List<Villageois> listCupidon = new List<Villageois>();
+        
 
         public Cupidon(string nom)
         {

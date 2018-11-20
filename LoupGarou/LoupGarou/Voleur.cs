@@ -9,7 +9,7 @@ namespace LoupGarou
     class Voleur
     {
         private string nom;
-        private List<Villageois> listVoleur = new List<Villageois>();
+        
 
         public Voleur(string nom)
         {
