@@ -17,5 +17,10 @@ namespace LoupGarou
         }
 
         public string Nom { get => nom; set => nom = value; }
+
+        public void ajouterSorciere(Villageois X)
+        {
+            listSorciere.Add(X);
+        }
     }
 }
