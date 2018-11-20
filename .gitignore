@@ -8,3 +8,5 @@ LoupGarou/.vs/LoupGarou/v15/Server/sqlite3/storage.ide-wal
 *.ide-shm
 LoupGarou/.vs/LoupGarou/v15/Server/sqlite3/storage.ide-shm
 LoupGarou/.vs/LoupGarou/v15/Server/sqlite3/storage.ide-wal
+LoupGarou/.vs/LoupGarou/v15/Server/sqlite3/storage.ide-wal
+*.ide-wal
