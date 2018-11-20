@@ -9,7 +9,7 @@ namespace LoupGarou
     class Cupidon
     {
         private string nom;
-        private List<Villageois> listeCupidon = new List<Villageois>();
+        private List<Villageois> listCupidon = new List<Villageois>();
 
         public Cupidon(string nom)
         {
@@ -17,5 +17,10 @@ namespace LoupGarou
         }
 
         public string Nom { get => nom; set => nom = value; }
+
+        public void ajouterCupidon(Villageois X)
+        {
+            listCupidon.Add(X);
+        }
     }
 }
