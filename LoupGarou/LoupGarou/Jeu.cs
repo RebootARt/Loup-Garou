@@ -8,32 +8,32 @@ namespace LoupGarou
 {
     class Jeu
     {
-
+        private List<Villageois> listeVillageois = new List<Villageois>();
         public void debutDuGame()
         {
             int numCarte = 1;
             Console.WriteLine("Combien de joueurs ? : ");
             int nbJoueur = int.Parse(Console.ReadLine());
 
-            for (int i = 1; i < nbJoueur; i++)
+            for (int i = 0; i < nbJoueur; i++)
             {
                 Console.WriteLine("Nom du joueur : ");
                 string nomJoueur = Console.In.ReadLine();
-                Villageois Villageois = new Villageois(nomJoueur, numCarte);
+                Villageois v = new Villageois(nomJoueur, numCarte);
 
 
+
+                numCarte = v.PlayerOrdre+1;
+                listeVillageois.Add(v);
+                afficherVillageois(); // mettre cette méthode dans hors de la boucle "for"
             }
 
-
-            foreach (var v in Villageois.listeVillageois)
-            {
-                Console.WriteLine("nb villageois" + v);
-            }
-            ajouterVillageois(Villageois);
         }
-        public void ajouterVillageois(Villageois Villageois)
-        {
-            listeVillageois.Add(Villageois);
+
+        public void afficherVillageois() {
+            foreach (var v in listeVillageois) {
+                Console.WriteLine("Nom du joueur nuérom: "+v.PlayerOrdre+ "  " + v.Nom);
+            }
         }
     }
 }
