@@ -25,6 +25,9 @@ namespace LoupGarou
 
         public void NbVoleur() {
             Console.WriteLine("nb voleur" + listVoleur.Count);
+            foreach (var v in listVoleur) {
+                Console.WriteLine(" il y a le joueur "+v.Nom+" chez les arabes");
+            }
         }
   
     }

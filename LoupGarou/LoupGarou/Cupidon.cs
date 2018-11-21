@@ -26,6 +26,10 @@ namespace LoupGarou
         public void NbCupidon()
         {
             Console.WriteLine("nb cupidon" + listCupidon.Count);
+            foreach (var c in listCupidon)
+            {
+                Console.WriteLine(" il y a le joueur " + c.Nom + " chez les Gays");
+            }
         }
 
     }
