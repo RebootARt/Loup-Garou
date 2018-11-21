@@ -38,9 +38,7 @@ namespace LoupGarou
 
             afficherVillageois(); // mettre cette méthode dans hors de la boucle "for"
             DefinirCartes(nbJoueur);
-            Console.WriteLine(" nb voleur" + listVoleur.Count);
-            Console.WriteLine(" nb cupidon " + listCupidon.Count);
-            //DefinirCartes();
+
         }
         
                 public void DefinirCartes(int nbJoueur)
@@ -85,13 +83,16 @@ namespace LoupGarou
                 if (v.PlayerOrdre == numCupidon)
                     {
                     Cupidon Culbidon = new Cupidon(v.Nom);
-                    listCupidon.Add(Culbidon);
-                    }
+                    Culbidon.ajouterCupidon(v);
+                    Culbidon.NbCupidon();
+                }
                     else if (v.PlayerOrdre == numVoleur)
                     {
                     Voleur BouncieBarro = new Voleur(v.Nom);
-                    listVoleur.Add(BouncieBarro);
-                    }
+                    BouncieBarro.ajouterVoleur(v);
+                    BouncieBarro.NbVoleur();
+                    
+                }
                 /*
                     else if (v.PlayerOrdre == numSorciere)
                     {

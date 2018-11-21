@@ -9,7 +9,7 @@ namespace LoupGarou
     class Voleur
     {
         private string nom;
-        
+        List<Villageois> listVoleur = new List<Villageois>();
 
         public Voleur(string nom)
         {
@@ -17,10 +17,15 @@ namespace LoupGarou
         }
 
         public string Nom { get => nom; set => nom = value; }
-
+   
         public void ajouterVoleur(Villageois X)
         {
             listVoleur.Add(X);
         }
+
+        public void NbVoleur() {
+            Console.WriteLine("nb voleur" + listVoleur.Count);
+        }
+  
     }
 }
