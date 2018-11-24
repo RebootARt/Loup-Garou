@@ -22,5 +22,14 @@ namespace LoupGarou
         {
             listLoupGarou.Add(X);
         }
+
+        public void NbLoup()
+        {
+            Console.WriteLine("nb cupidon" + listLoupGarou.Count);
+            foreach (var lp in listLoupGarou)
+            {
+                Console.WriteLine(" il y a le joueur " + lp.Nom + " chez les bats de loups");
+            }
+        }
     }
 }
