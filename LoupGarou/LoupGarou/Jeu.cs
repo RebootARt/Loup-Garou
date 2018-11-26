@@ -56,6 +56,10 @@ namespace LoupGarou
                 Console.WriteLine("numCupidon " + numCupidon+" numVoleur "+numVoleur+" "); // Ligne de debogage pour verifier les nombre aleatoire
                 Console.WriteLine("numLoup1 int "+numLoup1);
                 Console.WriteLine("numLoup2 int " + numLoup2);
+                if(numVoleur == numCupidon)
+                {
+                    numVoleur = aleatoire.Next(nbJoueur);
+                }
 
                 if (numLoup1 == numCupidon || numLoup1 == numVoleur)
                 {
