@@ -10,6 +10,7 @@ namespace LoupGarou
     {
         private string nom;
         List<Villageois> listCupidon = new List<Villageois>();
+        List<Villageois> listDesAmoureux = new List<Villageois>();
 
         public Cupidon(string nom)
         {
@@ -17,19 +18,31 @@ namespace LoupGarou
         }
 
         public string Nom { get => nom; set => nom = value; }
-    
-        public void ajouterCupidon(Villageois X)
+        internal List<Villageois> ListDesAmoureux { get => listDesAmoureux; set => listDesAmoureux = value; }
+        internal List<Villageois> ListCupidon { get => listCupidon; set => listCupidon = value; }
+
+        public void ajouterCupidon(Villageois X) // méthode pour stocker le cupidon
         {
-            listCupidon.Add(X);
+            ListCupidon.Add(X);
         }
 
         public void NbCupidon()
         {
-            Console.WriteLine("nb cupidon" + listCupidon.Count);
-            foreach (var c in listCupidon)
+            Console.WriteLine("nb cupidon" + ListCupidon.Count);
+            foreach (var c in ListCupidon)
             {
                 Console.WriteLine(" il y a le joueur " + c.Nom + " chez les Gays");
             }
+        }
+
+        public void ajouterAmoureux(Villageois X)  // méthode pour stocker les amoureux 
+        {
+            ListDesAmoureux.Add(X);
+        }
+
+        public void listeAmoureux()  // méthode pour stocker les amoureux 
+        {
+            Console.WriteLine("il y a " + listDesAmoureux.Count + " amoureux");
         }
 
     }

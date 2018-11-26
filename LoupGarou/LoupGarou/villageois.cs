@@ -23,13 +23,14 @@ namespace LoupGarou
 
         public string Nom { get => nom; set => nom = value; }
         public int PlayerOrdre { get => playerOrdre; set => playerOrdre = value; }
-
+        internal List<Villageois> ListeVillageois { get => listeVillageois; set => listeVillageois = value; }
 
         public void NbVillageois() {
-            foreach (var v in listeVillageois) {
-                Console.WriteLine("Nom du villageois "+v.nom);
-                Console.WriteLine(listeVillageois.Count);
-            }
+                Console.WriteLine(ListeVillageois.Count);
+        }
+
+        public void ajouterVillageois(Villageois v) {
+            listeVillageois.Add(v);
         }
     }
 }

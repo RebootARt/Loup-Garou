@@ -38,7 +38,7 @@ namespace LoupGarou
 
             afficherVillageois(); // mettre cette méthode dans hors de la boucle "for"
             DefinirCartes(nbJoueur);
-
+            debutTour();
         }
         
         public void DefinirCartes(int nbJoueur)
@@ -72,8 +72,9 @@ namespace LoupGarou
                 if (v.PlayerOrdre == numCupidon)
                 {
                     Cupidon Culbidon = new Cupidon(v.Nom);
-                    Culbidon.ajouterCupidon(v);
-                    Culbidon.NbCupidon();
+                    //Culbidon.ajouterCupidon(v);
+                    //Culbidon.NbCupidon();
+                    listCupidon.Add(Culbidon);
                 }
                 else if (v.PlayerOrdre == numVoleur)
                 {
@@ -116,6 +117,45 @@ namespace LoupGarou
             }
         }
 
+        public void debutTour()
+        {
+            Console.WriteLine("La nuit est là... ");
+            foreach (var c in listCupidon) {
+                Console.WriteLine("Cupidon veux tu de ton pouvoir ? O/N");
+                string choixPouvoir = Console.In.ReadLine();
+                if (choixPouvoir == "O")
+                {
+                    Console.WriteLine(" Cupidon fait ton choix pour les amoureux ");
+                    string choixAmoureux = Console.In.ReadLine();
+                    for (int i = 0; i < listeVillageois.Count; i++)
+                    {
+                        if (choixAmoureux == listeVillageois.ElementAt(i).Nom)
+                        {
+                            c.ajouterAmoureux(listeVillageois.ElementAt(i));
+                        }
+
+                    }
+                    c.listeAmoureux();
+                    if (c.ListDesAmoureux.Count < 2) {
+                        Console.WriteLine(" Encore un gros fragile ");
+                        string choixAmoureux2 = Console.In.ReadLine();
+                        for (int i = 0; i < listeVillageois.Count; i++)
+                        {
+                            if (choixAmoureux2 == listeVillageois.ElementAt(i).Nom)
+                            {
+                                c.ajouterAmoureux(listeVillageois.ElementAt(i));
+                            }
+
+                        }
+                    }
+                    c.listeAmoureux();
+                }
+                else {
+                    Console.WriteLine(" Cupidon tu es une grosse merde ");
+                }
+            }
+
+        }
 
     }
 }
