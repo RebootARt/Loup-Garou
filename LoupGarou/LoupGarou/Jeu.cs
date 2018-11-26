@@ -10,7 +10,7 @@ namespace LoupGarou
     {
         private List<Villageois> listeVillageois = new List<Villageois>();
         private List<Cupidon> listCupidon = new List<Cupidon>();
-        private List<Voleur> listVoleur = new List<Voleur>();
+        private List<LoupGarou> listLoupGarou = new List<LoupGarou>();
         public void debutDuGame()
         {
             int numCarte = 1;
@@ -84,15 +84,22 @@ namespace LoupGarou
 
                 }
                 else if (v.PlayerOrdre == numLoup1) {
+                    
                     LoupGarou lp1 = new LoupGarou(v.Nom);
+                    /*
                     lp1.ajouterLoup(v);
                     lp1.NbLoup();
+                    */
+                    listLoupGarou.Add(lp1);
                 }
                 else if (v.PlayerOrdre == numLoup2)
                 {
                     LoupGarou lp2 = new LoupGarou(v.Nom);
+                    /*
                     lp2.ajouterLoup(v);
                     lp2.NbLoup();
+                    */
+                    listLoupGarou.Add(lp2);
                 }
                 /*
                     else if (v.PlayerOrdre == numSorciere)
@@ -154,7 +161,17 @@ namespace LoupGarou
                     Console.WriteLine(" Cupidon tu es une grosse merde ");
                 }
             }
-
+            Console.WriteLine(" Mtn les loups garous vont jouer ");
+            foreach (var loup in listLoupGarou) {
+                Console.WriteLine(" Choix de la Misquine ");
+                string choixMisquine = Console.In.ReadLine();
+                for (int i = 0; i < listeVillageois.Count; i++) {
+                    if (choixMisquine == listeVillageois.ElementAt(i).Nom) {
+                        loup.ajouterVictime(listeVillageois.ElementAt(i));
+                    }
+                }
+                Console.WriteLine(" list misquine "+ loup.ListVictime.Count);
+            }
         }
 
     }
