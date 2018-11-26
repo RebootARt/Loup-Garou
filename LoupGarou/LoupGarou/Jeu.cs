@@ -190,19 +190,41 @@ namespace LoupGarou
                 {
                     Console.WriteLine(" c'est le même du coup " + listVictime.ElementAt(0).Nom + " va crever");
                     for (int z = 0; z < listeVillageois.Count; z++) {
-                        if (listeVillageois.ElementAt(z) == listVictime.ElementAt(0)) {
+                        if (listeVillageois.ElementAt(z) == listVictime.ElementAt(0)) { // on compare seulement 1 vu que c'est les 2 mêmes
                             Console.WriteLine(" la misquine " + listVictime.ElementAt(1).Nom + " est crevée");
                             listeVillageois.Remove(listeVillageois.ElementAt(z));
                             Console.WriteLine("nouvelle liste des grosse misquines "+listeVillageois.Count);
                         }
                     }
+                    break;
                 }
                 // faire si c'est pas le même et faire vider la liste des victimes
-                else {
+                else if(listVictime.ElementAt(0).PlayerOrdre != listVictime.ElementAt(1).PlayerOrdre) {
                     Console.WriteLine(" c'est pas le même du coup " + listVictime.ElementAt(i).Nom + " va pas crever");
+                    Random aleatoire = new Random();
+                    int numVictime = aleatoire.Next(2);
+                    Console.WriteLine(" c'est pas le même du coup " + listVictime.ElementAt(i).Nom + " va pas crever" + listVictime.ElementAt(i));
+                    for (int z = 0; z < listeVillageois.Count; z++) {
+                        if (numVictime == 0)
+                        {
+                            Console.WriteLine(" la misquine " + listVictime.ElementAt(0).Nom + " est crevée 0000");
+                            listeVillageois.Remove(listVictime.ElementAt(0));
+                            break;
+                        }
+                        else if (numVictime == 1)
+                        {
+                            Console.WriteLine(" la misquine " + listVictime.ElementAt(1).Nom + " est crevée 1111");
+                            listeVillageois.Remove(listVictime.ElementAt(1));
+                            break;
+                        }
+                        Console.WriteLine(" " + listVictime.ElementAt(i).Nom + " est crevé comme des merdes" + listVictime.ElementAt(i));
+                        Console.WriteLine("nouvelle liste des grosse misquines " + listeVillageois.Count+" les noms qui reste "+listeVillageois.ElementAt(z).Nom);
+                    }
                 }
+                Console.WriteLine("Before "+listVictime.Count);
+                break;
+
             }
         }
-
     }
 }
