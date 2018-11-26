@@ -18,12 +18,30 @@ namespace LoupGarou
         }
 
         public string Nom { get => nom; set => nom = value; }
-        internal List<Villageois> ListLoupGarou { get => listLoupGarou; set => listLoupGarou = value; }
-        internal List<Villageois> ListVictime { get => listVictime; set => listVictime = value; }
+
+        internal List<Villageois> GetListLoupGarou()
+        {
+            return listLoupGarou;
+        }
+
+        internal void SetListLoupGarou(List<Villageois> value)
+        {
+            listLoupGarou = value;
+        }
+
+        internal List<Villageois> GetListVictime()
+        {
+            return listVictime;
+        }
+
+        internal void SetListVictime(List<Villageois> value)
+        {
+            listVictime = value;
+        }
 
         public void ajouterLoup(Villageois X)
         {
-            ListLoupGarou.Add(X);
+            GetListLoupGarou().Add(X);
         }
 
         public void ajouterVictime(Villageois X)
@@ -33,8 +51,8 @@ namespace LoupGarou
 
         public void NbLoup()
         {
-            Console.WriteLine("nb cupidon" + ListLoupGarou.Count);
-            foreach (var lp in ListLoupGarou)
+            Console.WriteLine("nb cupidon" + GetListLoupGarou().Count);
+            foreach (var lp in GetListLoupGarou())
             {
                 Console.WriteLine(" il y a le joueur " + lp.Nom + " chez les bats de loups");
             }

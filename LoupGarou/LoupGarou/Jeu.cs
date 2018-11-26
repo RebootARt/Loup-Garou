@@ -39,6 +39,7 @@ namespace LoupGarou
             afficherVillageois(); // mettre cette méthode dans hors de la boucle "for"
             DefinirCartes(nbJoueur);
             debutTour();
+            victimeLP();
         }
         
         public void DefinirCartes(int nbJoueur)
@@ -160,17 +161,42 @@ namespace LoupGarou
                 else {
                     Console.WriteLine(" Cupidon tu es une grosse merde ");
                 }
-            }
+            } 
+        }
+
+        public void victimeLP() {
+            List<Villageois> listVictime = new List<Villageois>();
             Console.WriteLine(" Mtn les loups garous vont jouer ");
-            foreach (var loup in listLoupGarou) {
+            foreach (var loup in listLoupGarou)
+            {
                 Console.WriteLine(" Choix de la Misquine ");
                 string choixMisquine = Console.In.ReadLine();
-                for (int i = 0; i < listeVillageois.Count; i++) {
-                    if (choixMisquine == listeVillageois.ElementAt(i).Nom) {
-                        loup.ajouterVictime(listeVillageois.ElementAt(i));
+                for (int i = 0; i < listeVillageois.Count; i++) //on ajoute les nominés dans la liste des victimes
+                {
+                    if (choixMisquine == listeVillageois.ElementAt(i).Nom)
+                    {
+                        listVictime.Add(listeVillageois.ElementAt(i));
                     }
                 }
-                Console.WriteLine(" list misquine "+ loup.ListVictime.Count);
+                Console.WriteLine(" list misquine " + listVictime.Count);
+            }
+            // on regarde les nominés de la liste
+            for (int i = 0; i < listVictime.Count; i++) {
+                if (listVictime.ElementAt(0).PlayerOrdre == listVictime.ElementAt(1).PlayerOrdre)
+                {
+                    Console.WriteLine(" c'est le même du coup " + listVictime.ElementAt(0).Nom + " va crever");
+                    for (int z = 0; z < listeVillageois.Count; z++) {
+                        if (listeVillageois.ElementAt(z) == listVictime.ElementAt(0)) {
+                            Console.WriteLine(" la misquine " + listVictime.ElementAt(1).Nom + " est crevée");
+                            listeVillageois.Remove(listeVillageois.ElementAt(z));
+                            Console.WriteLine("nouvelle liste des grosse misquines "+listeVillageois.Count);
+                        }
+                    }
+                }
+                // faire si c'est pas le même et faire vider la liste des victimes
+                else {
+                    Console.WriteLine(" c'est pas le même du coup " + listVictime.ElementAt(i).Nom + " va pas crever");
+                }
             }
         }
 
