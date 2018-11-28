@@ -10,6 +10,7 @@ namespace LoupGarou
     {
         private string nom;
         private int playerOrdre;
+        private int voteContre;
 
         private List<Villageois> listeVillageois = new List<Villageois>();
 
@@ -24,6 +25,7 @@ namespace LoupGarou
         public string Nom { get => nom; set => nom = value; }
         public int PlayerOrdre { get => playerOrdre; set => playerOrdre = value; }
         internal List<Villageois> ListeVillageois { get => listeVillageois; set => listeVillageois = value; }
+        public int VoteContre { get => voteContre; set => voteContre = value; }
 
         public void NbVillageois() {
                 Console.WriteLine(ListeVillageois.Count);
