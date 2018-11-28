@@ -226,5 +226,18 @@ namespace LoupGarou
 
             }
         }
+
+        public void tourDesVillageois() { // même type de méthode pour les villageois
+            List<Villageois> peutEtreVictime = new List<Villageois>();
+            Console.WriteLine(" Mtn les villageois vont chercher si il y a des loups ...");
+            foreach (var v in listeVillageois) {
+                string choixVillageois = Console.In.ReadLine();
+                for (int i = 0; i < listeVillageois.Count; i++) {
+                    if (choixVillageois == listeVillageois.ElementAt(i).Nom) {
+                        peutEtreVictime.Add(listeVillageois.ElementAt(i));
+                    }
+                }
+            }
+        }
     }
 }
