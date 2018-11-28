@@ -27,7 +27,7 @@ namespace LoupGarou
             {
                 Console.WriteLine("Nom du joueur : ");
                 string nomJoueur = Console.In.ReadLine();
-                Villageois v = new Villageois(nomJoueur, numCarte);
+                Villageois v = new Villageois(nomJoueur, numCarte,0);
 
 
 
@@ -36,17 +36,21 @@ namespace LoupGarou
 
             }
 
-            afficherVillageois(); // mettre cette méthode dans hors de la boucle "for"
+             // mettre cette méthode dans hors de la boucle "for"
             DefinirCartes(nbJoueur);
             debutTour();
-            victimeLP();
-            tourDesVillageois();
+            while ((listeVillageois.Count!=0)||(listLoupGarou.Count!=0))
+            {
+                afficherVillageois();
+                victimeLP();
+                tourDesVillageois();
+            }
+
             Console.ReadLine();
         }
         
         public void DefinirCartes(int nbJoueur)
         {
-            int nbLoup, nbCupidon, nbVoleur;               //Variable pour donner le nombre de loups, cupidon et voleur
 
             //Définition des roles avec le tirage au sort
             Random aleatoire = new Random();
@@ -174,7 +178,7 @@ namespace LoupGarou
             List<Villageois> listVictime = new List<Villageois>();
             Console.WriteLine(" Mtn les loups garous vont jouer ");
             foreach (var loup in listLoupGarou)
-            {
+          {  
                 Console.WriteLine(" Choix de la Misquine ");
                 string choixMisquine = Console.In.ReadLine();
                 for (int i = 0; i < listeVillageois.Count; i++) //on ajoute les nominés dans la liste des victimes
@@ -188,7 +192,8 @@ namespace LoupGarou
             }
             // on regarde les nominés de la liste
             for (int i = 0; i < listVictime.Count; i++) {
-                if (listVictime.ElementAt(0).PlayerOrdre == listVictime.ElementAt(1).PlayerOrdre)
+                if (listVictime.Count<1) { 
+                if (listVictime.ElementAt(0).PlayerOrdre == listVictime.ElementAt(1).PlayerOrdre)// modifier la méthode pour continuer à la parcourir
                 {
                     Console.WriteLine(" c'est le même du coup " + listVictime.ElementAt(0).Nom + " va crever");
                     for (int z = 0; z < listeVillageois.Count; z++) {
@@ -225,26 +230,30 @@ namespace LoupGarou
                 }
                 Console.WriteLine("Before "+listVictime.Count);
                 break;
-
+                }
             }
+            listVictime=null;
         }
 
         public void tourDesVillageois() { // même type de méthode pour les villageois
 
             Console.WriteLine(" Mtn les villageois vont chercher si il y a des loups ...");
+            afficherVillageois();
             foreach (var v in listeVillageois) {
                 Console.WriteLine("Votre choix ");
                 string choixVillageois = Console.In.ReadLine();
 
+                //boucle pour ajouter +1 si la le nom rentré correspond à un nom
                 for (int i = 0; i < listeVillageois.Count; i++) {
                     if (choixVillageois == listeVillageois.ElementAt(i).Nom) {
-                        listeVillageois.ElementAt(i).VoteContre ++;
+                        listeVillageois.ElementAt(i).VoteContre += 1;
+                        Console.WriteLine(" le nom des petits malins " + listeVillageois.ElementAt(i).Nom + " et les votes contre eux " +listeVillageois.ElementAt(i).VoteContre+ " ");
                     }
                 }
+               var bite = listeVillageois.Max().VoteContre;
             }
-            // mtn on va regarder le villageois qui à eu le plus de vote contre lui 
+            
 
-            //Console.WriteLine("le petit coquin est " + maxVillageois + " ");
         }
     }
 }

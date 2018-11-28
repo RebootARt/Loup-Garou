@@ -16,10 +16,11 @@ namespace LoupGarou
 
 
 
-        public Villageois(string nom, int playerOrdre)
+        public Villageois(string nom, int playerOrdre, int voteContre)
         {
             this.Nom = nom;
             this.PlayerOrdre = playerOrdre;
+            this.VoteContre = voteContre;
         }
 
         public string Nom { get => nom; set => nom = value; }
