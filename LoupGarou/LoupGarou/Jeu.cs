@@ -40,6 +40,7 @@ namespace LoupGarou
             DefinirCartes(nbJoueur);
             debutTour();
             victimeLP();
+            tourDesVillageois();
         }
         
         public void DefinirCartes(int nbJoueur)
@@ -231,6 +232,7 @@ namespace LoupGarou
             List<Villageois> peutEtreVictime = new List<Villageois>();
             Console.WriteLine(" Mtn les villageois vont chercher si il y a des loups ...");
             foreach (var v in listeVillageois) {
+                Console.WriteLine("Votre choix ");
                 string choixVillageois = Console.In.ReadLine();
                 for (int i = 0; i < listeVillageois.Count; i++) {
                     if (choixVillageois == listeVillageois.ElementAt(i).Nom) {
@@ -238,6 +240,9 @@ namespace LoupGarou
                     }
                 }
             }
+            // mtn on va regarder le villageois qui à eu le plus de vote contre lui 
+            var maxVillageois = peutEtreVictime.Max();
+            Console.WriteLine("le petit coquin est " + maxVillageois.Nom + " ");
         }
     }
 }
