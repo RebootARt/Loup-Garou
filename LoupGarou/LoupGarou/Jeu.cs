@@ -238,20 +238,31 @@ namespace LoupGarou
         public void tourDesVillageois() { // même type de méthode pour les villageois
 
             Console.WriteLine(" Mtn les villageois vont chercher si il y a des loups ...");
+            Console.WriteLine(" création d'une liste de save");
+            List<int> lesVotes = new List<int>();
             afficherVillageois();
             foreach (var v in listeVillageois) {
                 Console.WriteLine("Votre choix ");
                 string choixVillageois = Console.In.ReadLine();
-
                 //boucle pour ajouter +1 si la le nom rentré correspond à un nom
                 for (int i = 0; i < listeVillageois.Count; i++) {
                     if (choixVillageois == listeVillageois.ElementAt(i).Nom) {
-                        listeVillageois.ElementAt(i).VoteContre += 1;
                         Console.WriteLine(" le nom des petits malins " + listeVillageois.ElementAt(i).Nom + " et les votes contre eux " +listeVillageois.ElementAt(i).VoteContre+ " ");
+                        lesVotes.Add(listeVillageois.ElementAt(i).VoteContre += 1);
                     }
                 }
-               var bite = listeVillageois.Max().VoteContre;
+                Console.WriteLine(" list des votes "+lesVotes+" ");
             }
+            int voteMax = lesVotes.Max();
+            //for (int i = 0; i < lesVotes.Count; i++) {     //on retire le villageois qui à le plus de vote contre lui
+                for (int z = 0; z < listeVillageois.Count; z++) {
+                    if (voteMax == listeVillageois.ElementAt(z).VoteContre) {
+                    Console.WriteLine("le jugement est rendu pour le villageois... "+"'"+listeVillageois.ElementAt(z).Nom+"'"+" tu vas crever sur la place public");
+                    listeVillageois.RemoveAt(z);
+                    }
+                }
+
+           // }
             
 
         }
