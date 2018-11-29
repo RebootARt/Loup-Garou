@@ -140,15 +140,13 @@ namespace LoupGarou
                 Console.WriteLine("Cupidon veux tu de ton pouvoir ? O/N");
                 string choixPouvoir = Console.In.ReadLine();
                 if (choixPouvoir == "O" || choixPouvoir == "o")
-                {
-                        Console.WriteLine(" Cupidon fait ton choix pour les amoureux ");
-                        string choixAmoureux = Console.In.ReadLine();
-                    while (c.ListDesAmoureux.Count < 1)
+                {     
+                    string choixAmoureux = null;
+                    while (c.ListDesAmoureux.Count ==0|| choixAmoureux == null)
                     {
-                        Console.WriteLine(" Cupidon refait ton choix pour les amoureux ");
+                        Console.WriteLine(" Cupidon fait ton choix pour les amoureux ");
                         choixAmoureux = Console.In.ReadLine();
-                    
-                    for (int i = 0; i < listeVillageois.Count; i++)
+                        for (int i = 0; i < listeVillageois.Count; i++)
                         {
                             if (choixAmoureux == listeVillageois.ElementAt(i).Nom)
                             {
