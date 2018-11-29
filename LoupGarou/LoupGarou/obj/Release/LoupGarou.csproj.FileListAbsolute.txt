@@ -1,0 +1,6 @@
+/Users/moulpe/Desktop/GITHUB-PROJECTS/Loup-Garou/LoupGarou/LoupGarou/bin/Release/LoupGarou.exe.config
+/Users/moulpe/Desktop/GITHUB-PROJECTS/Loup-Garou/LoupGarou/LoupGarou/bin/Release/LoupGarou.exe
+/Users/moulpe/Desktop/GITHUB-PROJECTS/Loup-Garou/LoupGarou/LoupGarou/bin/Release/LoupGarou.pdb
+/Users/moulpe/Desktop/GITHUB-PROJECTS/Loup-Garou/LoupGarou/LoupGarou/obj/Release/LoupGarou.csproj.CoreCompileInputs.cache
+/Users/moulpe/Desktop/GITHUB-PROJECTS/Loup-Garou/LoupGarou/LoupGarou/obj/Release/LoupGarou.exe
+/Users/moulpe/Desktop/GITHUB-PROJECTS/Loup-Garou/LoupGarou/LoupGarou/obj/Release/LoupGarou.pdb
