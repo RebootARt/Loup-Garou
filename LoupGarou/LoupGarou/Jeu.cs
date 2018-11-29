@@ -206,10 +206,10 @@ namespace LoupGarou
                     }
                      // faire si c'est pas le même et faire vider la liste des victimes
                     else if(listVictime.ElementAt(0).PlayerOrdre != listVictime.ElementAt(1).PlayerOrdre) {
-                        Console.WriteLine(" c'est pas le même du coup " + listVictime.ElementAt(i).Nom + " va pas crever");
+                        Console.WriteLine(" c'est pas le même du coup " + listVictime.ElementAt(0).Nom + " va pas crever");
                         Random aleatoire = new Random();
                         int numVictime = aleatoire.Next(2);
-                        Console.WriteLine(" c'est pas le même du coup " + listVictime.ElementAt(i).Nom + " va pas crever" + listVictime.ElementAt(i));
+                        Console.WriteLine(" c'est pas le même du coup " + listVictime.ElementAt(1).Nom + " va pas crever");
                         for (int z = 0; z < listeVillageois.Count; z++) {
                             if (numVictime == 0)
                             {
