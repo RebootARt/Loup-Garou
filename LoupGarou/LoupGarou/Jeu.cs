@@ -141,7 +141,7 @@ namespace LoupGarou
             foreach (var c in listCupidon) {
                 Console.WriteLine("Cupidon veux tu de ton pouvoir ? O/N");
                 string choixPouvoir = Console.In.ReadLine();
-                if (choixPouvoir == "O")
+                if (choixPouvoir == "O" || choixPouvoir == "o")
                 {
                     Console.WriteLine(" Cupidon fait ton choix pour les amoureux ");
                     string choixAmoureux = Console.In.ReadLine();
@@ -154,12 +154,12 @@ namespace LoupGarou
 
                     }
                     c.listeAmoureux();
-                    if (c.ListDesAmoureux.Count < 2) {
+                    while (c.ListDesAmoureux.Count < 2) {
                         Console.WriteLine(" Encore un gros fragile ");
                         string choixAmoureux2 = Console.In.ReadLine();
                         for (int i = 0; i < listeVillageois.Count; i++)
                         {
-                            if (choixAmoureux2 == listeVillageois.ElementAt(i).Nom)
+                            if (choixAmoureux2 == listeVillageois.ElementAt(i).Nom && choixAmoureux2 != choixAmoureux)
                             {
                                 c.ajouterAmoureux(listeVillageois.ElementAt(i));
                             }
@@ -247,8 +247,9 @@ namespace LoupGarou
                 //boucle pour ajouter +1 si la le nom rentré correspond à un nom
                 for (int i = 0; i < listeVillageois.Count; i++) {
                     if (choixVillageois == listeVillageois.ElementAt(i).Nom) {
-                        Console.WriteLine(" le nom des petits malins " + listeVillageois.ElementAt(i).Nom + " et les votes contre eux " +listeVillageois.ElementAt(i).VoteContre+ " ");
                         lesVotes.Add(listeVillageois.ElementAt(i).VoteContre += 1);
+                        Console.WriteLine(" le nom des petits malins " + listeVillageois.ElementAt(i).Nom + " et les votes contre eux " +listeVillageois.ElementAt(i).VoteContre+ " ");
+                        
                     }
                 }
                 Console.WriteLine(" list des votes "+lesVotes+" ");
@@ -259,12 +260,18 @@ namespace LoupGarou
                     if (voteMax == listeVillageois.ElementAt(z).VoteContre) {
                     Console.WriteLine("le jugement est rendu pour le villageois... "+"'"+listeVillageois.ElementAt(z).Nom+"'"+" tu vas crever sur la place public");
                     listeVillageois.RemoveAt(z);
+                    
                     }
                 }
 
-           // }
-            
+            for (int i = 0; i < listeVillageois.Count; i++)
+            {
+                listeVillageois.ElementAt(i).VoteContre = 0;
+            }
 
-        }
+                // }
+
+
+            }
     }
 }
