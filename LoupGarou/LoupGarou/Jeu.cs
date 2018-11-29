@@ -35,8 +35,6 @@ namespace LoupGarou
                 listeVillageois.Add(v);
 
             }
-
-             // mettre cette méthode dans hors de la boucle "for"
             DefinirCartes(nbJoueur);
             debutTour();
             while ((listeVillageois.Count!=0)||(listLoupGarou.Count!=0))
@@ -60,9 +58,7 @@ namespace LoupGarou
             int numLoup2 = aleatoire.Next(nbJoueur);
             foreach (var v in listeVillageois)
                 {
-                Console.WriteLine("numCupidon " + numCupidon+" numVoleur "+numVoleur+" "); // Ligne de debogage pour verifier les nombre aleatoire
-                Console.WriteLine("numLoup1 int "+numLoup1);
-                Console.WriteLine("numLoup2 int " + numLoup2);
+                Console.WriteLine("numCupidon " + numCupidon+" numVoleur "+numVoleur+" numLoup1 "+numLoup1+" numLoup2 "+numLoup2); // Ligne de debogage pour verifier les nombre aleatoire
                 if(numVoleur == numCupidon)
                 {
                     numVoleur = aleatoire.Next(nbJoueur);
@@ -97,11 +93,12 @@ namespace LoupGarou
                 else if (v.PlayerOrdre == numLoup1) {
                     
                     LoupGarou lp1 = new LoupGarou(v.Nom);
-                    /*
-                    lp1.ajouterLoup(v);
+                    
+                    //lp1.ajouterLoup(v);
                     lp1.NbLoup();
-                    */
+                    
                     listLoupGarou.Add(lp1);
+                    
                 }
                 else if (v.PlayerOrdre == numLoup2)
                 {
@@ -111,6 +108,7 @@ namespace LoupGarou
                     lp2.NbLoup();
                     */
                     listLoupGarou.Add(lp2);
+                   
                 }
                 /*
                     else if (v.PlayerOrdre == numSorciere)
@@ -183,6 +181,7 @@ namespace LoupGarou
                 string choixMisquine = Console.In.ReadLine();
                 for (int i = 0; i < listeVillageois.Count; i++) //on ajoute les nominés dans la liste des victimes
                 {
+                    
                     if (choixMisquine == listeVillageois.ElementAt(i).Nom)
                     {
                         listVictime.Add(listeVillageois.ElementAt(i));
@@ -192,47 +191,47 @@ namespace LoupGarou
             }
             // on regarde les nominés de la liste
             for (int i = 0; i < listVictime.Count; i++) {
-                if (listVictime.Count<1) { 
-                if (listVictime.ElementAt(0).PlayerOrdre == listVictime.ElementAt(1).PlayerOrdre)// modifier la méthode pour continuer à la parcourir
-                {
-                    Console.WriteLine(" c'est le même du coup " + listVictime.ElementAt(0).Nom + " va crever");
-                    for (int z = 0; z < listeVillageois.Count; z++) {
-                        if (listeVillageois.ElementAt(z) == listVictime.ElementAt(0)) { // on compare seulement 1 vu que c'est les 2 mêmes
-                            Console.WriteLine(" la misquine " + listVictime.ElementAt(1).Nom + " est crevée");
-                            listeVillageois.Remove(listeVillageois.ElementAt(z));
-                            Console.WriteLine("nouvelle liste des grosse misquines "+listeVillageois.Count);
+                if (listVictime.Count>1) { 
+                    if (listVictime.ElementAt(0).PlayerOrdre == listVictime.ElementAt(1).PlayerOrdre)// modifier la méthode pour continuer à la parcourir
+                    {
+                        Console.WriteLine(" c'est le même du coup " + listVictime.ElementAt(0).Nom + " va crever");
+                        for (int z = 0; z < listeVillageois.Count; z++) {
+                            if (listeVillageois.ElementAt(z) == listVictime.ElementAt(0)) { // on compare seulement 1 vu que c'est les 2 mêmes
+                                Console.WriteLine(" la misquine " + listVictime.ElementAt(1).Nom + " est crevée");
+                                listeVillageois.Remove(listeVillageois.ElementAt(z));
+                                Console.WriteLine("nouvelle liste des grosse misquines "+listeVillageois.Count);
+                            }
                         }
-                    }
                     break;
-                }
-                // faire si c'est pas le même et faire vider la liste des victimes
-                else if(listVictime.ElementAt(0).PlayerOrdre != listVictime.ElementAt(1).PlayerOrdre) {
-                    Console.WriteLine(" c'est pas le même du coup " + listVictime.ElementAt(i).Nom + " va pas crever");
-                    Random aleatoire = new Random();
-                    int numVictime = aleatoire.Next(2);
-                    Console.WriteLine(" c'est pas le même du coup " + listVictime.ElementAt(i).Nom + " va pas crever" + listVictime.ElementAt(i));
-                    for (int z = 0; z < listeVillageois.Count; z++) {
-                        if (numVictime == 0)
-                        {
-                            Console.WriteLine(" la misquine " + listVictime.ElementAt(0).Nom + " est crevée 0000");
-                            listeVillageois.Remove(listVictime.ElementAt(0));
-                            break;
-                        }
-                        else if (numVictime == 1)
-                        {
-                            Console.WriteLine(" la misquine " + listVictime.ElementAt(1).Nom + " est crevée 1111");
-                            listeVillageois.Remove(listVictime.ElementAt(1));
-                            break;
-                        }
-                        Console.WriteLine(" " + listVictime.ElementAt(i).Nom + " est crevé comme des merdes" + listVictime.ElementAt(i));
-                        Console.WriteLine("nouvelle liste des grosse misquines " + listeVillageois.Count+" les noms qui reste "+listeVillageois.ElementAt(z).Nom);
                     }
-                }
-                Console.WriteLine("Before "+listVictime.Count);
-                break;
-                }
+                     // faire si c'est pas le même et faire vider la liste des victimes
+                    else if(listVictime.ElementAt(0).PlayerOrdre != listVictime.ElementAt(1).PlayerOrdre) {
+                        Console.WriteLine(" c'est pas le même du coup " + listVictime.ElementAt(i).Nom + " va pas crever");
+                        Random aleatoire = new Random();
+                        int numVictime = aleatoire.Next(2);
+                        Console.WriteLine(" c'est pas le même du coup " + listVictime.ElementAt(i).Nom + " va pas crever" + listVictime.ElementAt(i));
+                        for (int z = 0; z < listeVillageois.Count; z++) {
+                            if (numVictime == 0)
+                            {
+                                Console.WriteLine(" la misquine " + listVictime.ElementAt(0).Nom + " est crevée 0000");
+                                listeVillageois.Remove(listVictime.ElementAt(0));
+                                break;
+                            }
+                            else if (numVictime == 1)
+                            {
+                                Console.WriteLine(" la misquine " + listVictime.ElementAt(1).Nom + " est crevée 1111");
+                                listeVillageois.Remove(listVictime.ElementAt(1));
+                                break;
+                            }
+                            Console.WriteLine(" " + listVictime.ElementAt(i).Nom + " est crevé comme des merdes" + listVictime.ElementAt(i));
+                            Console.WriteLine("nouvelle liste des grosse misquines " + listeVillageois.Count+" les noms qui reste "+listeVillageois.ElementAt(z).Nom);
+                        }
+                    }
+                    Console.WriteLine("Before "+listVictime.Count);
+                    break;
+                    }
             }
-            listVictime=null;
+                listVictime=null;
         }
 
         public void tourDesVillageois() { // même type de méthode pour les villageois
