@@ -103,27 +103,9 @@ namespace LoupGarou
                 else if (v.PlayerOrdre == numLoup2)
                 {
                     LoupGarou lp2 = new LoupGarou(v.Nom);
-                    /*
-                    lp2.ajouterLoup(v);
-                    lp2.NbLoup();
-                    */
                     listLoupGarou.Add(lp2);
                    
                 }
-                /*
-                    else if (v.PlayerOrdre == numSorciere)
-                    {
-                        Mireille.ajouterSorciere(v);
-                    }
-                    else if (v.PlayerOrdre == numLoup1)
-                    {
-                        Lupin.ajouterLoup(v);
-                    }
-                    else if (v.PlayerOrdre == numLoup2)
-                    {
-                        Lupin.ajouterLoup(v);
-                    }
-                    */
             }
          }
 
