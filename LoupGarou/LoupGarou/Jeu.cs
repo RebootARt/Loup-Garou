@@ -11,6 +11,11 @@ namespace LoupGarou
         private List<Villageois> listeVillageois = new List<Villageois>();
         private List<Cupidon> listCupidon = new List<Cupidon>();
         private List<LoupGarou> listLoupGarou = new List<LoupGarou>();
+        private List<Sorciere> listSorciere = new List<Sorciere>();
+
+        int validerPotionS = 0;
+        int validerPotionT = 0;
+
         public void debutDuGame()
         {
             int numCarte = 1;
@@ -40,7 +45,7 @@ namespace LoupGarou
             while ((listeVillageois.Count!=0)||(listLoupGarou.Count!=0))
             {
                 afficherVillageois();
-                victimeLP();
+                nuit();
                 tourDesVillageois();
             }
 
@@ -56,24 +61,28 @@ namespace LoupGarou
             int numVoleur = aleatoire.Next(nbJoueur);
             int numLoup1 = aleatoire.Next(nbJoueur);
             int numLoup2 = aleatoire.Next(nbJoueur);
+            int numSorciere = aleatoire.Next(nbJoueur);
             foreach (var v in listeVillageois)
                 {
                 Console.WriteLine("numCupidon " + numCupidon+" numVoleur "+numVoleur+" numLoup1 "+numLoup1+" numLoup2 "+numLoup2); // Ligne de debogage pour verifier les nombre aleatoire
-                if(numVoleur == numCupidon)
+                while (numVoleur == numCupidon)
                 {
                     numVoleur = aleatoire.Next(nbJoueur);
                 }
 
-                if (numLoup1 == numCupidon || numLoup1 == numVoleur)
+                while (numLoup1 == numCupidon || numLoup1 == numVoleur)
                 {
                     numLoup1 = aleatoire.Next(nbJoueur);         
                 }
 
-                if (numLoup2 == numCupidon || numLoup2 == numVoleur || numLoup2 == numLoup1)
+                while (numLoup2 == numCupidon || numLoup2 == numVoleur || numLoup2 == numLoup1)
                 {
                     numLoup2 = aleatoire.Next(nbJoueur);
                 }
-
+                while (numSorciere == numCupidon || numSorciere == numVoleur || numSorciere == numLoup1 || numSorciere == numLoup2)
+                {
+                    numSorciere = aleatoire.Next(nbJoueur);
+                }
                 // on ajoute les objets aux listes 
 
                 if (v.PlayerOrdre == numCupidon)
@@ -105,6 +114,11 @@ namespace LoupGarou
                     LoupGarou lp2 = new LoupGarou(v.Nom);
                     listLoupGarou.Add(lp2);
                    
+                }
+                else if (v.PlayerOrdre == numSorciere)
+                {
+                    Sorciere Mireille = new Sorciere(v.Nom);
+                    listSorciere.Add(Mireille);
                 }
             }
          }
@@ -161,7 +175,7 @@ namespace LoupGarou
             } 
         }
 
-        public void victimeLP() {
+        public void nuit() {
             List<Villageois> listVictime = new List<Villageois>();
             Console.WriteLine(" Mtn les loups garous vont jouer ");
             foreach (var loup in listLoupGarou)
@@ -179,12 +193,102 @@ namespace LoupGarou
                 }
                 Console.WriteLine(" list misquine " + listVictime.Count);
             }
+
+
             if (listVictime.Count > 1)
             {
                 //Si meme nom
+                if (listVictime.ElementAt(0).Nom == listVictime.ElementAt(1).Nom)
+                {
+                    listVictime.Remove(listVictime.ElementAt(1));
+                    Console.WriteLine("Les loups garous ont voté a l'unanimité " + listVictime.ElementAt(0).Nom + " comme victime ce soir");
+                }
+                //Si pas meme nom
+                else if(listVictime.ElementAt(0).Nom != listVictime.ElementAt(1).Nom)
+                {
+                    Console.WriteLine("Les loups ne se sont pas mis d'accord, par conséquent le hasard décidera entre les deux: ");
+                    Random aleatoire = new Random();
+                    int numPasVictime = aleatoire.Next(2);
+                    Console.WriteLine("La victime " + numPasVictime + " sera épargnée ce soir");
+                    listVictime.Remove(listVictime.ElementAt(numPasVictime));
+                    Console.WriteLine("La victime des loups sera donc : " + listVictime.ElementAt(0).Nom); // l'element 0 de la liste sera toujours la victime des loups
+
+                }
+            }
+            Console.WriteLine("Il y a " + listVictime.Count + " victimes en attente"); 
+
+            //C'est au tour de la sorciere de jouer
+            foreach (var s in listSorciere)
+            {
+
+                if (validerPotionS == 0 || validerPotionT == 0)
+                {
+                    Console.WriteLine("Sorciere bouge toi le cul! ");
+                    Console.WriteLine("Veux tu de ton pouvoir?");
+                    string sortirPotion = Console.In.ReadLine();
+                    if (sortirPotion == "O" || sortirPotion == "o")
+                    {
+                        Console.WriteLine("Le pouvoir S : " + validerPotionS + " et le pouvoir T : " + validerPotionT);
+                        Console.WriteLine("Quelle potion veux-tu?");
+
+                        Console.WriteLine("Sauver (S) ou Tuer (T)");
+
+                        string choixPotion = Console.In.ReadLine();
+                        if (choixPotion == "s" && validerPotionS == 0|| choixPotion == "S" && validerPotionS == 0)
+                        {
+                            Console.WriteLine("Dans un accès de bonté, tu as sauvé " + listVictime.ElementAt(0).Nom);
+                            listVictime.Remove(listVictime.ElementAt(0));
+                            validerPotionS = 1;
+
+                        }
+                        else if (choixPotion == "t" && validerPotionT == 0 || choixPotion == "T" && validerPotionT == 0)
+                        {
+                            int validerNom = 0;
+                            while (validerNom == 0)
+                            {
+                                Console.WriteLine("Qui désires tu tuer?");
+                                string victimePotion = Console.In.ReadLine();
+                                for (int i = 0; i < listeVillageois.Count; i++) //on ajoute les nominés dans la liste des victimes
+                                {
+
+                                    if (victimePotion == listeVillageois.ElementAt(i).Nom)
+                                    {
+                                        listVictime.Add(listeVillageois.ElementAt(i));
+                                        validerNom = 1;
+                                        Console.WriteLine("Les victimes seront donc " + listVictime.ElementAt(0).Nom + " ainsi que " + listVictime.ElementAt(1).Nom);
+                                        validerPotionT = 1;
+                                    }
+
+                                }
+                                if (validerNom == 0)
+                                {
+                                    Console.WriteLine("T'es bon pour recommencer mongol! ");
+                                }
+                            }
+                        }
+                        else if(validerPotionS == 1)
+                        {
+                            Console.WriteLine("T'as déjà sifflé la bouteille pour sauver avant tocard");
+                        }
+                        else if(validerPotionT == 1)
+                        {
+                            Console.WriteLine("Non seulement t'essaies de gruger une seconde potion, mais en plus pour buter qqun, t'es vraiment un batard!");
+                        }
+                    }
+
+                }
+
+
 
             }
-            
+            Console.WriteLine("Après passage de la sorcière, il y " + listVictime.Count + " victimes ce soir");
+
+
+
+            //Cupidon fait son affaire SOON
+
+
+
             // on regarde les nominés de la liste
 
             //CHANGER DE PLACE CE QUI SUIT POUR LE METTRE DANS LE DECOMPTE DES MORTS
@@ -236,7 +340,6 @@ namespace LoupGarou
         }
 
 
-
         public void tourDesVillageois() { // même type de méthode pour les villageois
 
             Console.WriteLine(" Mtn les villageois vont chercher si il y a des loups ...");
@@ -260,7 +363,7 @@ namespace LoupGarou
             //for (int i = 0; i < lesVotes.Count; i++) {     //on retire le villageois qui à le plus de vote contre lui
                 for (int z = 0; z < listeVillageois.Count; z++) {
                     if (voteMax == listeVillageois.ElementAt(z).VoteContre) {
-                    Console.WriteLine("le jugement est rendu pour le villageois... "+"'"+listeVillageois.ElementAt(z).Nom+"'"+" tu vas crever sur la place public");
+                    Console.WriteLine("le jugement est rendu pour le villageois... "+"'"+listeVillageois.ElementAt(z).Nom+"'"+" tu vas crever sur la place publique");
                     listeVillageois.RemoveAt(z);
                     
                     }
