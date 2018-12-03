@@ -165,7 +165,7 @@ namespace LoupGarou
             List<Villageois> listVictime = new List<Villageois>();
             Console.WriteLine(" Mtn les loups garous vont jouer ");
             foreach (var loup in listLoupGarou)
-          {  
+            {  
                 Console.WriteLine(" Choix de la Misquine ");
                 string choixMisquine = Console.In.ReadLine();
                 for (int i = 0; i < listeVillageois.Count; i++) //on ajoute les nominés dans la liste des victimes
@@ -174,21 +174,31 @@ namespace LoupGarou
                     if (choixMisquine == listeVillageois.ElementAt(i).Nom)
                     {
                         listVictime.Add(listeVillageois.ElementAt(i));
+                        
                     }
                 }
                 Console.WriteLine(" list misquine " + listVictime.Count);
             }
+            if (listVictime.Count > 1)
+            {
+                //Si meme nom
+
+            }
+            
             // on regarde les nominés de la liste
-            for (int i = 0; i < listVictime.Count; i++) {
+
+            //CHANGER DE PLACE CE QUI SUIT POUR LE METTRE DANS LE DECOMPTE DES MORTS
+            /*for (int i = 0; i < listVictime.Count; i++) {
                 if (listVictime.Count>1) { 
                     if (listVictime.ElementAt(0).PlayerOrdre == listVictime.ElementAt(1).PlayerOrdre)// modifier la méthode pour continuer à la parcourir
                     {
                         Console.WriteLine("C'est le même du coup "+ listVictime.ElementAt(0).Nom +" va crever");
+                        Console.WriteLine(" c'est le même du coup " + listVictime.ElementAt(0).Nom + " va crever");
+                        listVictime.Remove(listVictime.ElementAt(1));
                         for (int z = 0; z < listeVillageois.Count; z++) {
                             if (listeVillageois.ElementAt(z) == listVictime.ElementAt(0)) { // on compare seulement 1 vu que c'est les 2 mêmes
                                 Console.WriteLine(" la misquine " + listVictime.ElementAt(1).Nom + " est crevée");
                                 listeVillageois.Remove(listeVillageois.ElementAt(z));
-                                Console.WriteLine("nouvelle liste des grosse misquines "+listeVillageois.Count);
                             }
                         }
                     break;
@@ -220,8 +230,12 @@ namespace LoupGarou
                     break;
                     }
             }
-                listVictime=null;
+                listVictime=null;*/
+
+
         }
+
+
 
         public void tourDesVillageois() { // même type de méthode pour les villageois
 
