@@ -42,8 +42,11 @@ namespace LoupGarou
 
         public void listeAmoureux()  // méthode pour stocker les amoureux 
         {
-            Console.WriteLine("il y a " + listDesAmoureux.Count + " amoureux");
+         Console.WriteLine("il y a " + listDesAmoureux.Count + " amoureux");
         }
-
+        public void prenomAmoureux()
+        {
+            Console.WriteLine("Les amoureux sont " + listDesAmoureux.ElementAt(0).Nom + " ainsi que " + listDesAmoureux.ElementAt(1).Nom);
+        }
     }
 }

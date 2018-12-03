@@ -152,6 +152,8 @@ namespace LoupGarou
                         }
                     }
                     c.listeAmoureux();
+                    c.prenomAmoureux();
+
                 }
                 else {
                     Console.WriteLine(" Cupidon tu es une grosse merde ");
@@ -181,7 +183,7 @@ namespace LoupGarou
                 if (listVictime.Count>1) { 
                     if (listVictime.ElementAt(0).PlayerOrdre == listVictime.ElementAt(1).PlayerOrdre)// modifier la méthode pour continuer à la parcourir
                     {
-                        Console.WriteLine(" c'est le même du coup " + listVictime.ElementAt(0).Nom + " va crever");
+                        Console.WriteLine("C'est le même du coup "+ listVictime.ElementAt(0).Nom +" va crever");
                         for (int z = 0; z < listeVillageois.Count; z++) {
                             if (listeVillageois.ElementAt(z) == listVictime.ElementAt(0)) { // on compare seulement 1 vu que c'est les 2 mêmes
                                 Console.WriteLine(" la misquine " + listVictime.ElementAt(1).Nom + " est crevée");
