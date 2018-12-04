@@ -95,8 +95,6 @@ namespace LoupGarou
                 else if (v.PlayerOrdre == numVoleur)
                 {
                     Voleur BouncieBarro = new Voleur(v.Nom);
-                    BouncieBarro.ajouterVoleur(v);
-                    BouncieBarro.NbVoleur();
 
                 }
                 else if (v.PlayerOrdre == numLoup1) {
@@ -151,7 +149,7 @@ namespace LoupGarou
                             }
                         }
                     }
-                    c.listeAmoureux();
+                    Console.WriteLine(" nombre d'amoureux "+listDesAmoureux.Count());
                     
                    
                     while (listDesAmoureux.Count < 2) {
@@ -166,8 +164,7 @@ namespace LoupGarou
 
                         }
                     }
-                    c.listeAmoureux();
-                    c.prenomAmoureux();
+
 
                 }
                 else {
