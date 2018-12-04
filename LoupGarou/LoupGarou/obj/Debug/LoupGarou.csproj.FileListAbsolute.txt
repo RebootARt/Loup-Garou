@@ -1,10 +1,3 @@
-E:/CESI/GITHUB/Loup-Garou/LoupGarou/LoupGarou/obj/Debug/LoupGarou.csprojAssemblyReference.cache
-E:/CESI/GITHUB/Loup-Garou/LoupGarou/LoupGarou/obj/Debug/LoupGarou.csproj.CoreCompileInputs.cache
-E:/CESI/GITHUB/Loup-Garou/LoupGarou/LoupGarou/bin/Debug/LoupGarou.exe.config
-E:/CESI/GITHUB/Loup-Garou/LoupGarou/LoupGarou/bin/Debug/LoupGarou.exe
-E:/CESI/GITHUB/Loup-Garou/LoupGarou/LoupGarou/bin/Debug/LoupGarou.pdb
-E:/CESI/GITHUB/Loup-Garou/LoupGarou/LoupGarou/obj/Debug/LoupGarou.exe
-E:/CESI/GITHUB/Loup-Garou/LoupGarou/LoupGarou/obj/Debug/LoupGarou.pdb
 C:/Users/RobertPastiss/Documents/GitHub/Loup-Garou/LoupGarou/LoupGarou/bin/Debug/LoupGarou.exe.config
 C:/Users/RobertPastiss/Documents/GitHub/Loup-Garou/LoupGarou/LoupGarou/bin/Debug/LoupGarou.exe
 C:/Users/RobertPastiss/Documents/GitHub/Loup-Garou/LoupGarou/LoupGarou/bin/Debug/LoupGarou.pdb
@@ -19,3 +12,9 @@ C:/Users/RobertPastiss/Documents/GitHub/Loup-Garou/LoupGarou/LoupGarou/obj/Debug
 /Users/moulpe/Desktop/GITHUB-PROJECTS/Loup-Garou/LoupGarou/LoupGarou/obj/Debug/LoupGarou.csproj.CoreCompileInputs.cache
 /Users/moulpe/Desktop/GITHUB-PROJECTS/Loup-Garou/LoupGarou/LoupGarou/obj/Debug/LoupGarou.exe
 /Users/moulpe/Desktop/GITHUB-PROJECTS/Loup-Garou/LoupGarou/LoupGarou/obj/Debug/LoupGarou.pdb
+E:\CESI\GITHUB\Loup-Garou\LoupGarou\LoupGarou\bin\Debug\LoupGarou.exe.config
+E:\CESI\GITHUB\Loup-Garou\LoupGarou\LoupGarou\bin\Debug\LoupGarou.exe
+E:\CESI\GITHUB\Loup-Garou\LoupGarou\LoupGarou\bin\Debug\LoupGarou.pdb
+E:\CESI\GITHUB\Loup-Garou\LoupGarou\LoupGarou\obj\Debug\LoupGarou.csproj.CoreCompileInputs.cache
+E:\CESI\GITHUB\Loup-Garou\LoupGarou\LoupGarou\obj\Debug\LoupGarou.exe
+E:\CESI\GITHUB\Loup-Garou\LoupGarou\LoupGarou\obj\Debug\LoupGarou.pdb

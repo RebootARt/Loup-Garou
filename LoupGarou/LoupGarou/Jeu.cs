@@ -285,8 +285,25 @@ namespace LoupGarou
 
 
 
-            //Cupidon fait son affaire SOON
+            //Cupidon fait son affaire SOON, need GAB
 
+            //Eliminer les victimes
+
+                for (int i = 0; i < listeVillageois.Count; i++)
+                {
+                    while (listVictime.Count != 0)
+                    {
+                        if (listeVillageois.ElementAt(i).Nom == listVictime.ElementAt(0).Nom)
+                        {
+                            Console.WriteLine(listeVillageois.ElementAt(i).Nom + " va crever comme une merde");
+                            listVictime.Remove(listVictime.ElementAt(0));
+                            listeVillageois.Remove(listeVillageois.ElementAt(i));
+                        }
+                    }
+                }
+
+
+            
 
 
             // on regarde les nominés de la liste
