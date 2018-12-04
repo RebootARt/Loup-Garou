@@ -131,6 +131,7 @@ namespace LoupGarou
 
         public void debutTour()
         {
+            List<Villageois> listDesAmoureux = new List<Villageois>();
             Console.WriteLine("La nuit est là... ");
             foreach (var c in listCupidon) {
                 Console.WriteLine("Cupidon veux tu de ton pouvoir ? O/N");
@@ -138,7 +139,7 @@ namespace LoupGarou
                 if (choixPouvoir == "O" || choixPouvoir == "o")
                 {     
                     string choixAmoureux = null;
-                    while (c.ListDesAmoureux.Count ==0|| choixAmoureux == null)
+                    while (listDesAmoureux.Count ==0|| choixAmoureux == null)
                     {
                         Console.WriteLine(" Cupidon fait ton choix pour les amoureux ");
                         choixAmoureux = Console.In.ReadLine();
@@ -146,21 +147,21 @@ namespace LoupGarou
                         {
                             if (choixAmoureux == listeVillageois.ElementAt(i).Nom)
                             {
-                                c.ajouterAmoureux(listeVillageois.ElementAt(i));
+                                listDesAmoureux.Add(listeVillageois.ElementAt(i));
                             }
                         }
                     }
                     c.listeAmoureux();
                     
                    
-                    while (c.ListDesAmoureux.Count < 2) {
+                    while (listDesAmoureux.Count < 2) {
                         Console.WriteLine(" Encore un gros fragile ");
                         string choixAmoureux2 = Console.In.ReadLine();
                         for (int i = 0; i < listeVillageois.Count; i++)
                         {
                             if (choixAmoureux2 == listeVillageois.ElementAt(i).Nom && choixAmoureux2 != choixAmoureux)
                             {
-                                c.ajouterAmoureux(listeVillageois.ElementAt(i));
+                                listDesAmoureux.Add(listeVillageois.ElementAt(i));
                             }
 
                         }
