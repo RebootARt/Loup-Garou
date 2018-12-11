@@ -12,6 +12,7 @@ namespace LoupGarou
         private List<Cupidon> listCupidon = new List<Cupidon>();
         private List<LoupGarou> listLoupGarou = new List<LoupGarou>();
         private List<Sorciere> listSorciere = new List<Sorciere>();
+        List<Villageois> listDesAmoureux = new List<Villageois>();
 
         int validerPotionS = 0;
         int validerPotionT = 0;
@@ -42,7 +43,7 @@ namespace LoupGarou
             }
             DefinirCartes(nbJoueur);
             debutTour();
-            while ((listeVillageois.Count!=0)||(listLoupGarou.Count!=0))
+            while ((listeVillageois.Count > 2)||(listLoupGarou.Count != 0))
             {
                 afficherVillageois();
                 nuit();
@@ -129,7 +130,7 @@ namespace LoupGarou
 
         public void debutTour()
         {
-            List<Villageois> listDesAmoureux = new List<Villageois>();
+
             Console.WriteLine("La nuit est là... ");
             foreach (var c in listCupidon) {
                 Console.WriteLine("Cupidon veux tu de ton pouvoir ? O/N");
@@ -284,74 +285,41 @@ namespace LoupGarou
 
 
             //Cupidon fait son affaire SOON, need GAB
-
-            //Eliminer les victimes
-
-                for (int i = 0; i < listeVillageois.Count; i++)
+            int amoureux = 0;
+            for(int i = 0; i < listVictime.Count; i++)
+            {
+                while(amoureux == 0)
                 {
-                    while (listVictime.Count != 0)
+                    if (listDesAmoureux.ElementAt(0) == listVictime.ElementAt(i))
                     {
-                        if (listeVillageois.ElementAt(i).Nom == listVictime.ElementAt(0).Nom)
-                        {
-                            Console.WriteLine(listeVillageois.ElementAt(i).Nom + " va crever comme une merde");
-                            listVictime.Remove(listVictime.ElementAt(0));
-                            listeVillageois.Remove(listeVillageois.ElementAt(i));
-                        }
+                        listVictime.Add(listDesAmoureux.ElementAt(1));
+                        Console.WriteLine("Comme " + listDesAmoureux.ElementAt(0).Nom + " est agonisant et épris d'amour pour " + listDesAmoureux.ElementAt(1).Nom + ", alors ce dernier crèvera aussi comme un tas");
+                        amoureux = 1;
+                    }
+                    else if (listDesAmoureux.ElementAt(1) == listVictime.ElementAt(i))
+                    {
+                        listVictime.Add(listDesAmoureux.ElementAt(0));
+                        Console.WriteLine("Comme " + listDesAmoureux.ElementAt(1).Nom + " est agonisant et épris d'amour pour " + listDesAmoureux.ElementAt(0).Nom + ", alors ce dernier crèvera aussi comme un tas");
+                        amoureux = 1;
                     }
                 }
 
-
-            
-
-
-            // on regarde les nominés de la liste
-
-            //CHANGER DE PLACE CE QUI SUIT POUR LE METTRE DANS LE DECOMPTE DES MORTS
-            /*for (int i = 0; i < listVictime.Count; i++) {
-                if (listVictime.Count>1) { 
-                    if (listVictime.ElementAt(0).PlayerOrdre == listVictime.ElementAt(1).PlayerOrdre)// modifier la méthode pour continuer à la parcourir
-                    {
-                        Console.WriteLine("C'est le même du coup "+ listVictime.ElementAt(0).Nom +" va crever");
-                        Console.WriteLine(" c'est le même du coup " + listVictime.ElementAt(0).Nom + " va crever");
-                        listVictime.Remove(listVictime.ElementAt(1));
-                        for (int z = 0; z < listeVillageois.Count; z++) {
-                            if (listeVillageois.ElementAt(z) == listVictime.ElementAt(0)) { // on compare seulement 1 vu que c'est les 2 mêmes
-                                Console.WriteLine(" la misquine " + listVictime.ElementAt(1).Nom + " est crevée");
-                                listeVillageois.Remove(listeVillageois.ElementAt(z));
-                            }
-                        }
-                    break;
-                    }
-                     // faire si c'est pas le même et faire vider la liste des victimes
-                    else if(listVictime.ElementAt(0).PlayerOrdre != listVictime.ElementAt(1).PlayerOrdre) {
-                        Console.WriteLine(" c'est pas le même du coup " + listVictime.ElementAt(0).Nom + " va pas crever");
-                        Random aleatoire = new Random();
-                        int numVictime = aleatoire.Next(2);
-                        Console.WriteLine(" c'est pas le même du coup " + listVictime.ElementAt(1).Nom + " va pas crever");
-                        for (int z = 0; z < listeVillageois.Count; z++) {
-                            if (numVictime == 0)
-                            {
-                                Console.WriteLine(" la misquine " + listVictime.ElementAt(0).Nom + " est crevée 0000");
-                                listeVillageois.Remove(listVictime.ElementAt(0));
-                                break;
-                            }
-                            else if (numVictime == 1)
-                            {
-                                Console.WriteLine(" la misquine " + listVictime.ElementAt(1).Nom + " est crevée 1111");
-                                listeVillageois.Remove(listVictime.ElementAt(1));
-                                break;
-                            }
-                            Console.WriteLine(" " + listVictime.ElementAt(i).Nom + " est crevé comme des merdes" + listVictime.ElementAt(i));
-                            Console.WriteLine("nouvelle liste des grosse misquines " + listeVillageois.Count+" les noms qui reste "+listeVillageois.ElementAt(z).Nom);
-                        }
-                    }
-                    Console.WriteLine("Before "+listVictime.Count);
-                    break;
-                    }
             }
-                listVictime=null;*/
-
-
+            Console.WriteLine("Après passage de cupidon, il y " + listVictime.Count + " victimes ce soir");
+            //Eliminer les victimes
+            for(int a = 0; a < listVictime.Count; a++)
+            {
+                for(int i = 0; i < listeVillageois.Count; i++)
+                {
+                    if(listVictime.ElementAt(a) == listeVillageois.ElementAt(i))
+                    {
+                        Console.WriteLine("En ce jour funeste, " + listeVillageois.ElementAt(i).Nom + " vient de crever.");
+                        listeVillageois.Remove(listeVillageois.ElementAt(i));
+                    }
+                }
+            }
+            listVictime.Clear();
+            Console.WriteLine("Il reste " + listVictime.Count + " victimes");
         }
 
 
